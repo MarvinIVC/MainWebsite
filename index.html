@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +17,7 @@
             height: 100vh;
             flex-direction: column;
             color: #333;
+            position: relative;
         }
         .container {
             text-align: center;
@@ -25,7 +25,6 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
         .small-text {
             font-size: 14px;
@@ -60,11 +59,11 @@
             color: #ff6347;
         }
         .view-counter {
-            font-size: 14px;
-            color: #777;
             position: absolute;
             bottom: 10px;
             left: 10px;
+            font-size: 14px;
+            color: #777;
         }
         .footer {
             position: fixed;
@@ -99,16 +98,34 @@
         <div class="project-item">
             <a href="https://marvin.cloe.cl" target="_blank">EzYTHelper (Watch YouTube without distractions)</a>
         </div>
-        <div class="view-counter">
-            This page has been viewed <span id="view-count">...</span> times
-        </div>
     </div>
+    <div class="view-counter">This page has been viewed <span id="viewCount">0</span> times</div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
     <script>
-        fetch('counter.php')
-            .then(response => response.text())
-            .then(count => {
-                document.getElementById('view-count').innerText = count;
-            });
+        // Your Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBcttOncL3saaYgVfJH1FP5f1SQNJh-YFA",
+            authDomain: "marvinmp-80e82.firebaseapp.com",
+            databaseURL: "https://marvinmp-80e82-default-rtdb.firebaseio.com",
+            projectId: "marvinmp-80e82",
+            storageBucket: "marvinmp-80e82.appspot.com",
+            messagingSenderId: "198369227169",
+            appId: "1:198369227169:web:4f03fa13e77dbda9029be0"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var database = firebase.database();
+        var viewCountRef = database.ref('viewCount');
+
+        viewCountRef.once('value').then(function(snapshot) {
+            var count = snapshot.val() || 0;
+            document.getElementById('viewCount').innerText = count;
+            viewCountRef.set(count + 1);
+        });
     </script>
     <div class="footer">
             <div class="footer-text">Made by Marvin with Much Love</div>
