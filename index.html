@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +25,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         .small-text {
             font-size: 14px;
@@ -56,7 +59,13 @@
         .project-item a:hover {
             color: #ff6347;
         }
-        /* Footer styles */
+        .view-counter {
+            font-size: 14px;
+            color: #777;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
         .footer {
             position: fixed;
             bottom: 20px;
@@ -90,10 +99,20 @@
         <div class="project-item">
             <a href="https://marvin.cloe.cl" target="_blank">EzYTHelper (Watch YouTube without distractions)</a>
         </div>
-        <div class="footer">
-            <div class="footer-text">Made by Marvin with Much Love</div>
-        <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
+        <div class="view-counter">
+            This page has been viewed <span id="view-count">...</span> times
+        </div>
     </div>
+    <script>
+        fetch('counter.php')
+            .then(response => response.text())
+            .then(count => {
+                document.getElementById('view-count').innerText = count;
+            });
+    </script>
+    <div class="footer">
+            <div class="footer-text">Made by Marvin with Much Love</div>
+            <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
     </div>
 </body>
 </html>
