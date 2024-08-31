@@ -1,34 +1,42 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
 const bodyParser = require('body-parser');
+const admin = require('firebase-admin');
+
+// Initialize Firebase Admin SDK
+const serviceAccount = require('./firebaseKey.json'); // Make sure to replace with your Firebase key file
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com" // Replace with your Firebase database URL
+});
+
+const db = admin.firestore();
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Use environment port or default to 3000
-const RATINGS_FILE = path.join(__dirname, 'ratings.txt');
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname)); // Serve static files from the current directory
+app.use(express.static(__dirname));
 
 // Endpoint to handle rating submission
-app.post('/submit-rating', (req, res) => {
-    const rating = req.body.rating;
+app.post('/submit-rating', async (req, res) => {
+  const rating = req.body.rating;
 
-    if (!rating) {
-        return res.status(400).json({ error: 'Rating is required' });
-    }
+  if (!rating) {
+    return res.status(400).json({ error: 'Rating is required' });
+  }
 
-    // Append the rating to the file
-    fs.appendFile(RATINGS_FILE, `${rating}\n`, (err) => {
-        if (err) {
-            console.error('Error writing to file', err);
-            return res.status(500).json({ error: 'Internal Server Error' });
-        }
-        res.json({ message: 'Rating submitted successfully' });
-    });
+  try {
+    // Add rating to Firestore
+    await db.collection('ratings').add({ rating: rating, timestamp: new Date() });
+    res.json({ message: 'Rating submitted successfully' });
+  } catch (error) {
+    console.error('Error writing to Firestore', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
