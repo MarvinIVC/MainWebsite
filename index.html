@@ -24,6 +24,8 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px;
         }
         .small-text {
             font-size: 14px;
@@ -83,6 +85,20 @@
             width: 20px;
             height: 20px;
         }
+
+        .star-rating-container {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        .star {
+            font-size: 2rem;
+            cursor: pointer;
+            color: lightgray;
+        }
+        .star.selected {
+            color: gold;
+        }
     </style>
 </head>
 <body>
@@ -98,16 +114,60 @@
             <a href="https://marvin.cloe.cl" target="_blank">EzYTHelper (Watch YouTube without distractions)</a>
         </div>
         <div class="project-item">
-            <a href="https://url-shortener-ruby-psi.vercel.app/" target="_blank">EZUrl (Shorten uour URLs for free with optional back half based off mwsl.ddns.net)</a>
+            <a href="https://url-shortener-ruby-psi.vercel.app/" target="_blank">EZUrl (Shorten your URLs for free with optional back half based off mwsl.ddns.net)</a>
+        </div>
+        
+        <!-- Star Rating Gadget -->
+        <div class="star-rating-container">
+            <h3>Rate My Website!</h3>
+            <div id="star-container">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <button id="submit-rating">Submit</button>
         </div>
     </div>
+
     <div class="footer">
-            <div class="footer-text">Made by Marvin with Much Love</div>
-            <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
+        <div class="footer-text">Made by Marvin with Much Love</div>
+        <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
     </div>
 
-    
     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1226943/t/5"></script>
 
+    <!-- JavaScript for Star Rating Gadget -->
+    <script>
+        let selectedRating = 0;
+        const stars = document.querySelectorAll('.star');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                selectedRating = star.getAttribute('data-value');
+                stars.forEach(s => s.classList.remove('selected'));
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add('selected');
+                }
+            });
+        });
+
+        document.getElementById('submit-rating').addEventListener('click', () => {
+            if (selectedRating > 0) {
+                fetch('/submit-rating', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ rating: selectedRating })
+                }).then(response => response.json())
+                  .then(data => alert('Rating submitted successfully!'))
+                  .catch(error => console.error('Error:', error));
+            } else {
+                alert('Please select a rating!');
+            }
+        });
+    </script>
 </body>
 </html>
