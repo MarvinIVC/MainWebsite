@@ -73,10 +73,12 @@
             font-size: 14px;
             color: black;
         }
+
         .footer-text {
             margin-right: 10px;
             font-weight: bold;
         }
+
         .footer-heart {
             width: 20px;
             height: 20px;
@@ -96,49 +98,16 @@
             <a href="https://marvin.cloe.cl" target="_blank">EzYTHelper (Watch YouTube without distractions)</a>
         </div>
         <div class="project-item">
-            <a href="https://url-shortener-ruby-psi.vercel.app/" target="_blank">EZUrl (Shorten your URLs for free with optional back half based off mwsl.ddns.net)</a>
-        </div>
-
-        <!-- Star Rating Gadget -->
-        <div class="rating">
-            <input type="radio" name="rating" value="1" id="star1"><label for="star1">1 Star</label>
-            <input type="radio" name="rating" value="2" id="star2"><label for="star2">2 Stars</label>
-            <input type="radio" name="rating" value="3" id="star3"><label for="star3">3 Stars</label>
-            <input type="radio" name="rating" value="4" id="star4"><label for="star4">4 Stars</label>
-            <input type="radio" name="rating" value="5" id="star5"><label for="star5">5 Stars</label>
-            <button id="submitRating">Submit</button>
+            <a href="https://url-shortener-ruby-psi.vercel.app/" target="_blank">EZUrl (Shorten uour URLs for free with optional back half based off mwsl.ddns.net)</a>
         </div>
     </div>
-
     <div class="footer">
-        <div class="footer-text">Made by Marvin with Much Love</div>
-        <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
+            <div class="footer-text">Made by Marvin with Much Love</div>
+            <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
     </div>
 
+    
     <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1226943/t/5"></script>
 
-    <!-- Script for submitting rating -->
-    <script>
-        document.getElementById('submitRating').addEventListener('click', () => {
-            const rating = document.querySelector('input[name="rating"]:checked').value;
-
-            fetch('https://mwmp.brt.ar/submit-rating', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ rating })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert('Rating submitted successfully!');
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('Error submitting rating');
-            });
-        });
-    </script>
 </body>
 </html>
