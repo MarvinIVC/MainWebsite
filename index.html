@@ -122,7 +122,7 @@
         document.getElementById('submitRating').addEventListener('click', () => {
             const rating = document.querySelector('input[name="rating"]:checked').value;
 
-            fetch('/submit-rating', {
+            fetch('https://mwmp.brt.ar/submit-rating', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
