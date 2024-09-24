@@ -8,7 +8,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
       gtag('config', 'G-MJM152MN2G');
     </script>
     <meta charset="UTF-8">
@@ -16,64 +16,100 @@
     <title>Marvin's Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background: linear-gradient(135deg, #f0f0f0, #d8e3f1);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            flex-direction: column;
             color: #333;
-            position: relative;
+            overflow: hidden;
         }
+
         .container {
             text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            width: 95%;
+            margin-top: 20px;
         }
+
         .small-text {
-            font-size: 14px;
-            color: #777;
-        }
-        .big-text {
-            font-size: 48px;
-            font-weight: bold;
-            margin: 10px 0;
-            color: #333;
-        }
-        .subtitle {
-            font-size: 18px;
-            color: #555;
-        }
-        .projects-title {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
             margin-top: 30px;
-            color: #333;
         }
-        .project-item {
-            font-size: 18px;
+
+        .big-text {
+            font-size: 56px;
+            font-weight: 800;
+            margin: 10px 0;
+            color: #2c3e50;
+            letter-spacing: 1.5px;
             margin-top: 10px;
         }
+
+        .subtitle {
+            font-size: 20px;
+            color: #34495e;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        .projects-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 15px;
+            color: #333;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .project-item {
+            font-size: 18px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .project-item img {
+            width: 40px;
+            height: 40px;
+        }
+
         .project-item a {
-            color: #1e90ff;
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
+
         .project-item a:hover {
-            color: #ff6347;
+            background-color: #2980b9;
+            transform: scale(1.05);
         }
-        .view-counter {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
+
+        .project-description {
             font-size: 14px;
-            color: #777;
+            color: #555;
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
+
         .footer {
             position: fixed;
             bottom: 20px;
@@ -81,7 +117,7 @@
             display: flex;
             align-items: center;
             font-size: 14px;
-            color: black;
+            color: #333;
         }
 
         .footer-text {
@@ -90,11 +126,10 @@
         }
 
         .footer-heart {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
         }
-        
-        /* Added style for the contact section */
+
         .contact-info {
             position: fixed;
             bottom: 70px;
@@ -102,53 +137,78 @@
             font-size: 14px;
             color: #333;
             background-color: #fff;
-            padding: 8px;
+            padding: 10px;
             border-radius: 5px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
+
         .contact-info a {
-            color: #1e90ff;
+            color: #3498db;
             text-decoration: none;
             font-weight: bold;
         }
+
         .contact-info a:hover {
-            color: #ff6347;
+            color: #e74c3c;
+        }
+
+        .badge {
+            margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <div class="small-text">This is the website of</div>
-        <div class="big-text">Marvin</div>
-        <div class="subtitle">A Programming Student and Enthusiast</div>
+        <div class="small-text">Welcome to</div>
+        <div class="big-text">Marvin's Space</div>
+        <div class="subtitle">Programming Enthusiast and Student</div>
+
         <div class="projects-title">My Projects</div>
+
         <div class="project-item">
-            <a href="https://img.mwsys.xyz" target="_blank">EzImg (Share your images conveniently)</a>
+            <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png" alt="Image icon">
+            <a href="https://img.mwsys.xyz" target="_blank">EzImg</a>
         </div>
+        <div class="project-description">Share your images conveniently with ease.</div>
+
         <div class="project-item">
-            <a href="https://yth.mwsys.xyz" target="_blank">EzYTHelper (Watch YouTube without distractions)</a>
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube icon">
+            <a href="https://yth.mwsys.xyz" target="_blank">EzYTHelper</a>
         </div>
+        <div class="project-description">Watch YouTube without distractions.</div>
+
         <div class="project-item">
-            <a href="https://link.mwsys.xyz" target="_blank">EZUrl (Shorten your URLs for free with optional back half based off u.mwsys.xyz)</a>
+            <img src="https://cdn-icons-png.flaticon.com/512/3214/3214746.png" alt="Link icon">
+            <a href="https://link.mwsys.xyz" target="_blank">EZUrl</a>
         </div>
+        <div class="project-description">Shorten your URLs with custom back halves.</div>
+
         <div class="project-item">
-            <a href="https://wordle.mwsys.xyz" target="_blank">EZWordle (Play world as much as you want - for free!)</a>
+            <img src="https://assets.stickpng.com/images/6228c92e9da9446176b9f710.png" alt="Wordle icon" style="width: 55px; height: 55px;">
+            <a href="https://wordle.mwsys.xyz" target="_blank">EZWordle</a>
         </div>
+        <div class="project-description">Play Wordle as much as you want!</div>
+
         <div class="project-item">
-            <a href="https://card.mwsys.xyz" target="_blank">EZCards (Recite your words/definitions effectively and conveniently! (better than quizlet!))</a>
+            <img src="https://blog.virtualwritingtutor.com/wp-content/uploads/2021/11/flashcards-2.png" alt="Flashcards icon" style="width: 50px; height: 50px;">
+            <a href="https://card.mwsys.xyz" target="_blank">EZCards</a>
+        </div>
+        <div class="project-description">Effective word/definition flashcards.</div>
+
+        <div class="badge">
+            <img src="https://badges.toozhao.com/badges/01J7N14YCRJYSZWBVXVXMKMJM1/blue.svg" alt="badge" />
         </div>
     </div>
-    
+
     <div class="footer">
-        <div class="footer-text">Made by Marvin with Much Love</div>
+        <div class="footer-text">Crafted by Marvin with Love</div>
         <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
     </div>
-    
 
     <div class="contact-info">
-        Bugs or suggestions? Please contact us at <a href="mailto:admin@mwsys.xyz">admin@mwsys.xyz</a>!
+        Have feedback? Contact me at <a href="mailto:admin@mwsys.xyz">admin@mwsys.xyz</a>!
     </div>
-    
-    <img src="https://badges.toozhao.com/badges/01J7N14YCRJYSZWBVXVXMKMJM1/blue.svg" />
 </body>
+
 </html>
