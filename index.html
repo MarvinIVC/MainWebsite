@@ -1,1 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJM152MN2G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MJM152MN2G');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvin's Website</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 10px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            overflow: hidden;
+        }
+
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+            z-index: -1;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 40px; 
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 95%;
+            margin: 10px auto; 
+            transform: none; 
+            max-height: 90vh; 
+            overflow-y: auto; 
+        }
+
+        .small-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+            margin-top: 10px; 
+        }
+
+        .big-text {
+            font-size: 56px;
+            font-weight: 800;
+            margin: 5px 0; 
+            color: #2c3e50;
+            letter-spacing: 1.5px;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #34495e;
+            margin-bottom: 20px; 
+            margin-top: 10px;
+        }
+
+        .projects-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px; 
+            color: #333;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            gap: 0px;
+        }
+
+        .project-column {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .project-item {
+            font-size: 18px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .project-item img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .project-item a {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .project-item a:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+            margin-bottom: 5px; 
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #333;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-text {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .footer-heart {
+            width: 24px;
+            height: 24px;
+        }
+
+        .contact-info {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            font-size: 14px;
+            color: #333;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            color: #e74c3c;
+        }
+
+        .badge-info {
+            position: fixed;
+            bottom: 130px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge-info img {
+            width: 200px; 
+            height: auto;
+        }
+
+        .devstory-info {
+            position: fixed;
+            bottom: 90px; 
+            right: 20px;
+            font-size: 14px;
+            color: #333;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; 
+        }
+
+        .devstory-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .devstory-info a:hover {
+            color: #e74c3c;
+        }
+
+        .badge {
+            margin-top: 20px;
+        }
+
+        .badge-info {
+            position: fixed;
+            bottom: 150px; 
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .badge-info img {
+            width: 100px; 
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="small-text">Welcome to</div>
+        <div class="big-text">Marvin's Space</div>
+        <div class="subtitle">Programming Enthusiast and Student</div>
+
+        <div class="projects-title">My Projects</div>
+
+        <div class="projects-container">
+            <div class="project-column">
+                <div class="project-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png" alt="Image icon">
+                    <a href="https://img.mwsys.xyz" target="_blank">EzImg</a>
+                </div>
+                <div class="project-description">Share your images conveniently with ease.</div>
+
+                <div class="project-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube icon">
+                    <a href="https://yth.mwsys.xyz" target="_blank">EzYTHelper</a>
+                </div>
+                <div class="project-description">Watch YouTube without distractions.</div>
+
+                <div class="project-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3214/3214746.png" alt="Link icon">
+                    <a href="https://link.mwsys.xyz" target="_blank">EzUrl</a>
+                </div>
+                <div class="project-description">Shorten your URLs with custom back halves.</div>
+
+                <div class="project-item">
+                    <img src="https://nytminicrossword.com/wp-content/themes/iconic-one/data/nyt-wordle/logo.png" alt="Wordle icon" style="width: 47px; height: 47px;">
+                    <a href="https://wordle.mwsys.xyz" target="_blank">EzWordle</a>
+                </div>
+                <div class="project-description">Play Wordle as much as you want!</div>
+
+                <div class="project-item">
+                    <img src="https://static.vecteezy.com/system/resources/previews/015/989/367/original/flash-card-icon-free-vector.jpg" alt="Flashcards icon" style="width: 50px; height: 50px;">
+                    <a href="https://card.mwsys.xyz" target="_blank">EzCards</a>
+                </div>
+                <div class="project-description">Effective word/definition flashcards.</div>
+            </div>
+
+            <div class="project-column">
+                <div class="project-item">
+                    <img src="https://images.vexels.com/media/users/3/132348/isolated/preview/4b664c72b5acf0e998f810ec0f6df7c8-stopwatch-timer-stroke-icon.png" alt="Timer icon" style="width: 50px; height: 50px;">
+                    <a href="https://timer.mwsys.xyz" target="_blank">EzTimer</a>
+                </div>
+                <div class="project-description">Your customizable tomato timer.</div>
+
+                <div class="project-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0DS7uOPfhogD7OxmDKx7JAFqH5zPBmwAbnQ&s" alt="Calculator icon" style="width: 50px; height: 50px;">
+                    <a href="https://grade.mwsys.xyz" target="_blank">EzGradeCalc</a>
+                </div>
+                <div class="project-description">Accurate subject grade/GPA calculator.</div>
+            </div>
+        </div>
+
+        <div class="badge-info">
+            <img src="https://badges.toozhao.com/badges/01J7N14YCRJYSZWBVXVXMKMJM1/blue.svg" alt="badge" />
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-text">Crafted by Marvin with Love</div>
+        <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
+    </div>
+
+    <div class="devstory-info">
+        Check out my <a href="https://devstory.fyi/mw" target="_blank">Devstory</a>!
+    </div>
+    
+    <div class="contact-info">
+        Have feedback? Contact me at <a href="mailto:admin@mwsys.xyz">admin@mwsys.xyz</a>!
+    </div>
+</body>
+
+</html>
