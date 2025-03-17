@@ -242,6 +242,25 @@
             width: 100px; 
             height: auto;
         }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: #333;
+            margin-left: 15px;
+            transition: opacity 0.3s ease;
+        }
+
+        .download-button img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .download-button:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 
@@ -302,6 +321,10 @@
                 <div class="project-item">
                     <img src="https://cdn-icons-png.flaticon.com/512/4388/4388160.png" alt="Time Management icon" style="width: 50px; height: 50px;">
                     <a href="https://eztm.mwsys.xyz" target="_blank">EzTimeManager</a>
+                    <a href="EzTimeManager.dmg" class="download-button">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaRPSoNxrQW8UPJXfy3ttAUi9-7P-XGBRALQ&s" alt="Download">
+                        <span>download app!</span>
+                    </a>
                 </div>
                 <div class="project-description">Schedule your day with tasks and be organized!</div>
 
