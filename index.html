@@ -119,19 +119,21 @@
         }
 
         .project-item a {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s ease;
+                display: inline-block;
+                background-color: #3498db;
+                color: white;
+                padding: 8px 15px;  /* Reduced from 12px 20px */
+                border-radius: 5px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                font-size: 16px;  /* Added for consistency */
         }
 
-        .project-item a:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
-        }
+        .project-item a:hover,
+            .download-button:hover {
+                background-color: #2980b9 !important;
+                transform: scale(1.05);
+            }
 
         .project-description {
             font-size: 14px;
@@ -246,16 +248,19 @@
         .download-button {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            text-decoration: none;
-            color: #333;
-            margin-left: 15px;
-            transition: opacity 0.3s ease;
+            gap: 8px;
+            margin-left: 10px;
+            padding: 8px 15px !important;  /* Match main button */
+            background-color: #3498db !important;  /* Match blue color */
         }
-
+        
         .download-button img {
-            width: 40px;
-            height: 40px;
+            width: 30px;  /* Reduced from 40px */
+            height: 30px;  /* Reduced from 40px */
+        }
+        
+        .download-button span {
+            font-size: 14px;  /* Slightly smaller text */
         }
 
         .download-button:hover {
@@ -321,7 +326,9 @@
                 <div class="project-item">
                     <img src="https://cdn-icons-png.flaticon.com/512/4388/4388160.png" alt="Time Management icon" style="width: 50px; height: 50px;">
                     <a href="https://eztm.mwsys.xyz" target="_blank">EzTimeManager</a>
-                    <a href="https://dl.dropboxusercontent.com/scl/fi/ho4z797gxnkctzoi0vhzt/EzTM.dmg?rlkey=9e1z3wrt6bvrovk5dcz4dp0ch&st=uhog74si" class="download-button">
+                    <a href="https://dl.dropboxusercontent.com/scl/fi/ho4z797gxnkctzoi0vhzt/EzTM.dmg?rlkey=9e1z3wrt6bvrovk5dcz4dp0ch&st=uhog74si&raw=1" 
+                       class="download-button"
+                       download="EzTimeManager.dmg">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaRPSoNxrQW8UPJXfy3ttAUi9-7P-XGBRALQ&s" alt="Download">
                         <span>download app!</span>
                     </a>
