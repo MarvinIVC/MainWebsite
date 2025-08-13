@@ -1,360 +1,750 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJM152MN2G"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-MJM152MN2G');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marvin's Website</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 10px 0;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-            overflow: hidden;
-        }
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJM152MN2G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config','G-MJM152MN2G', { anonymize_ip: true });
+  </script>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Marvin's Space – Futuristic Tech Showcase</title>
+  <meta name="description" content="Marvin's Space: a futuristic showcase of student-built tools — image sharing, distraction-free YouTube, URL shortener, citation generator, Wordle, flashcards, timer, GPA calculator, time manager, and grammar checker.">
+  <meta name="theme-color" content="#0b132b">
+  <meta name="color-scheme" content="dark">
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.5;
-            z-index: -1;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
-        }
+  <!-- Open Graph -->
+  <meta property="og:title" content="Marvin's Space – Futuristic Tech Showcase">
+  <meta property="og:description" content="Explore student-built tools for productivity, study, and play — fast, focused, and beautifully designed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mwsys.xyz/">
+  <meta property="og:image" content="https://mwsys.xyz/og-image.png">
 
-        .container {
-            text-align: center;
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            padding: 40px; 
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-            width: 95%;
-            margin: 10px auto; 
-            transform: none; 
-            max-height: 90vh; 
-            overflow-y: auto; 
-        }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Marvin's Space – Futuristic Tech Showcase">
+  <meta name="twitter:description" content="Explore student-built tools for productivity, study, and play — fast, focused, and beautifully designed.">
+  <meta name="twitter:image" content="https://mwsys.xyz/og-image.png">
 
-        .small-text {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 5px;
-            margin-top: 10px; 
-        }
+  <link rel="canonical" href="https://mwsys.xyz/">
 
-        .big-text {
-            font-size: 56px;
-            font-weight: 800;
-            margin: 5px 0; 
-            color: #2c3e50;
-            letter-spacing: 1.5px;
-            margin-top: 10px;
-        }
+  <!-- Performance: fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-        .subtitle {
-            font-size: 20px;
-            color: #34495e;
-            margin-bottom: 20px; 
-            margin-top: 10px;
-        }
+  <!-- tsParticles -->
+  <script defer src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-        .projects-title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-bottom: 10px; 
-            color: #333;
-            border-bottom: 2px solid #3498db;
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
+  <style>
+    /* --- Variables & Reset --- */
+    :root {
+      --bg-0: #0b132b;
+      --bg-1: #101b3a;
+      --text: #e6eefb;
+      --muted: #a7b5d3; /* slightly brighter for contrast */
+      --accent: #5de4c7;
+      --accent2: #7aa2f7;
+      --card-bg: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.12);
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(0,0,0,0.4);
+      --focus: #ffd166;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; overflow-x:hidden; }
+    body {
+      font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg-0);
+      color: var(--text);
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-        .projects-container {
-            display: flex;
-            justify-content: center;
-            gap: 0px;
-        }
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 16px;
+      background: #000;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      z-index: 1000;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 16px; outline: 2px solid var(--focus); }
 
-        .project-column {
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    /* Particle canvas */
+    #tsparticles { position: fixed; inset: 0; z-index: -2; }
 
-        .project-item {
-            font-size: 18px;
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+    /* Aurora/parallax layers */
+    .layer {
+      position: fixed; inset: 0; z-index: -3;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(93,228,199,0.12), transparent 70%);
+      transition: background-position 0.2s;
+    }
 
-        .project-item img {
-            width: 40px;
-            height: 40px;
-        }
+    /* Main */
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
+      flex-grow: 1;
+    }
+    header.hero {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-top: 3.5rem; /* space for top-right settings button */
+    }
+    .small { font-size: 14px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    h1.big {
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      position: relative;
+      color: var(--accent);
+      text-shadow:
+        0 0 8px var(--accent),
+        0 0 16px var(--accent),
+        0 0 32px var(--accent2);
+      animation: neon-flicker 3s infinite alternate ease-in-out;
+      margin: 20px 0;
+    }
+    .sub { font-size: 1.125rem; color: var(--muted); margin-top: 0.5rem; }
 
-        .project-item a {
-                display: inline-block;
-                background-color: #3498db;
-                color: white;
-                padding: 8px 15px;  /* Reduced from 12px 20px */
-                border-radius: 5px;
-                text-decoration: none;
-                transition: all 0.3s ease;
-                font-size: 16px;  /* Added for consistency */
-        }
+    @keyframes neon-flicker {
+      0%,100% { opacity: 1; }
+      5%,15%,25% { opacity: 0.88; }
+      10%,20%,30% { opacity: 0.93; }
+    }
 
-        .project-item a:hover,
-            .download-button:hover {
-                background-color: #2980b9 !important;
-                transform: scale(1.05);
-            }
+    /* Top-right settings button and menu */
+    .settings-wrap {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+    }
+    .settings-btn {
+      width: 40px; height: 40px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform .15s ease, background .2s ease, border-color .2s ease;
+    }
+    .settings-btn:hover { transform: translateY(-1px); background: rgba(93,228,199,0.08); border-color: rgba(93,228,199,0.24); }
+    .settings-btn:active { transform: translateY(0); }
+    .settings-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
-        .project-description {
-            font-size: 14px;
-            color: #555;
-            margin-top: 5px;
-            margin-bottom: 5px; 
-        }
+    .quick-menu {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 240px;
+      background: rgba(15, 25, 55, 0.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 12px;
+      display: none;
+    }
+    .quick-menu.open { display: block; animation: fadeup .15s ease forwards; }
+    .quick-menu h3 {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .menu-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+    }
+    .menu-row label { font-size: 0.95rem; color: var(--text); }
 
-        .footer {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: #333;
-            background-color: white;
-            padding: 10px 15px;
-            border-radius: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+    /* Toggle switch */
+    .toggle {
+      appearance: none;
+      width: 44px; height: 24px;
+      background: #21314f;
+      border-radius: 999px;
+      position: relative;
+      outline: none;
+      cursor: pointer;
+      transition: background .2s ease;
+      flex-shrink: 0;
+    }
+    .toggle:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .toggle::after {
+      content: "";
+      position: absolute; top: 3px; left: 3px;
+      width: 18px; height: 18px;
+      background: white;
+      border-radius: 50%;
+      transition: transform .2s ease;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+    .toggle:checked { background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+    .toggle:checked::after { transform: translateX(20px); }
 
-        .footer-text {
-            margin-right: 10px;
-            font-weight: bold;
-        }
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+      list-style: none;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform .2s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .card:hover {
+      transform: scale(1.02) perspective(600px) rotateX(2deg) rotateY(2deg);
+      border-color: var(--accent2);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at center, var(--accent2), transparent 70%);
+      opacity: 0;
+      transition: opacity .5s, transform .5s;
+      will-change: opacity, transform;
+    }
+    .card:hover::before { opacity: 0.15; transform: translate(25%,25%) scale(0.8) rotate(15deg); }
 
-        .footer-heart {
-            width: 24px;
-            height: 24px;
-        }
+    .icon {
+      width: 60px; height: 60px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transform: translateZ(30px);
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px;
+      aspect-ratio: 1 / 1;
+    }
+    .icon img {
+      width: 100%; height: 100%;
+      object-fit: contain; display: block;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin: 1.1rem 0 0.6rem;
+      transform: translateZ(24px);
+      color: var(--accent);
+    }
+    .desc {
+      font-size: 0.98rem;
+      color: var(--muted);
+      line-height: 1.55;
+      transform: translateZ(18px);
+      min-height: 60px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 100%);
+      color: #052b22;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      transform: translateZ(20px);
+      transition: transform .25s ease, box-shadow .25s ease, opacity .2s ease;
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+      will-change: transform;
+    }
+    .btn:hover { transform: translateZ(20px) scale(1.04); box-shadow: 0 0 20px rgba(93, 228, 199, 0.6); }
+    .btn:active { transform: translateZ(20px) scale(0.98); }
+    .btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
-        .contact-info {
-            position: fixed;
-            bottom: 70px;
-            right: 20px;
-            font-size: 14px;
-            color: #333;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
+    /* Footer */
+    footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      background: rgba(10, 20, 40, 0.7);
+      border-top: 1px solid rgba(93, 228, 199, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(93, 228, 199, 0.1);
+    }
+    .footer-links a:hover {
+      color: #e6f7ff;
+      background: rgba(122, 162, 247, 0.22);
+      transform: translateY(-2px);
+    }
+    .footer-links a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .signature {
+      font-size: 1.1rem;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .heart {
+      color: #ff6b6b;
+      animation: heartbeat 1.5s infinite ease-in-out;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      5% { transform: scale(1.2); }
+      10% { transform: scale(1); }
+      15% { transform: scale(1.28); }
+      50% { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
 
-        .contact-info a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    /* Fade-in */
+    .fade-in { opacity: 0; transform: translateY(16px); animation: fadeup .7s ease forwards; }
+    .fade-in:nth-of-type(1) { animation-delay: 0.15s; }
+    .fade-in:nth-of-type(2) { animation-delay: 0.3s; }
+    .fade-in:nth-of-type(3) { animation-delay: 0.45s; }
+    @keyframes fadeup { to { opacity: 1; transform: translateY(0); } }
 
-        .contact-info a:hover {
-            color: #e74c3c;
-        }
+    /* Focus visibility for anything interactive */
+    :where(a, button, [tabindex]):focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 8px; }
 
-        .badge-info {
-            position: fixed;
-            bottom: 130px;
-            right: 20px;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, .big::before, .big::after { animation: none !important; transition: none !important; }
+      #tsparticles, .layer { display: none !important; }
+    }
 
-        .badge-info img {
-            width: 200px; 
-            height: auto;
-        }
-
-        .devstory-info {
-            position: fixed;
-            bottom: 90px; 
-            right: 20px;
-            font-size: 14px;
-            color: #333;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px; 
-        }
-
-        .devstory-info a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .devstory-info a:hover {
-            color: #e74c3c;
-        }
-
-        .badge {
-            margin-top: 20px;
-        }
-
-        .badge-info {
-            position: fixed;
-            bottom: 150px; 
-            right: 20px;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .badge-info img {
-            width: 100px; 
-            height: auto;
-        }
-
-        .download-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-left: 10px;
-            padding: 8px 15px !important;  /* Match main button */
-            background-color: #3498db !important;  /* Match blue color */
-        }
-        
-        .download-button img {
-            width: 30px;  /* Reduced from 40px */
-            height: 30px;  /* Reduced from 40px */
-        }
-        
-        .download-button span {
-            font-size: 14px;  /* Slightly smaller text */
-        }
-
-        .download-button:hover {
-            opacity: 0.8;
-        }
-    </style>
+    /* Responsive */
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+      h1.big { font-size: clamp(2.2rem, 8vw, 4rem); }
+      .footer-links { flex-direction: column; gap: 15px; }
+    }
+    @media (max-width: 480px) {
+      h1.big { font-size: clamp(2rem, 8vw, 3.5rem); }
+      .card { padding: 1.2rem; }
+      .icon { width: 50px; height: 50px; }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="small-text">Welcome to</div>
-        <div class="big-text">Marvin's Space</div>
-        <div class="subtitle">Programming Enthusiast and Student</div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="projects-title">My Projects</div>
+  <!-- Particle background -->
+  <div id="tsparticles" aria-hidden="true"></div>
 
-        <div class="projects-container">
-            <div class="project-column">
-                <div class="project-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png" alt="Image icon">
-                    <a href="https://img.mwsys.xyz" target="_blank">EzImg</a>
-                </div>
-                <div class="project-description">Share your images conveniently with ease.</div>
+  <!-- Parallax glow layer -->
+  <div class="layer" aria-hidden="true"></div>
 
-                <div class="project-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube icon">
-                    <a href="https://yth.mwsys.xyz" target="_blank">EzYTHelper</a>
-                </div>
-                <div class="project-description">Watch YouTube without distractions.</div>
+  <!-- Settings (top-right) -->
+  <div class="settings-wrap">
+    <button class="settings-btn" id="settingsBtn" aria-label="Open settings" aria-controls="quickMenu" aria-expanded="false">
+      <!-- Gear icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c0 .66.39 1.26 1 1.51H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </button>
 
-                <div class="project-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3214/3214746.png" alt="Link icon">
-                    <a href="https://link.mwsys.xyz" target="_blank">EzUrl</a>
-                </div>
-                <div class="project-description">Shorten your URLs with custom back halves.</div>
+    <div class="quick-menu" id="quickMenu" role="dialog" aria-modal="false" aria-label="Quick settings" aria-hidden="true">
+      <h3>Quick settings</h3>
+      <div class="menu-row">
+        <label for="toggleEffects">Visual effects</label>
+        <input id="toggleEffects" class="toggle" type="checkbox" aria-label="Toggle visual effects">
+      </div>
+    </div>
+  </div>
 
-                <div class="project-item">
-                    <img src="https://nytminicrossword.com/wp-content/themes/iconic-one/data/nyt-wordle/logo.png" alt="Wordle icon" style="width: 47px; height: 47px;">
-                    <a href="https://wordle.mwsys.xyz" target="_blank">EzWordle</a>
-                </div>
-                <div class="project-description">Play Wordle as much as you want!</div>
+  <div class="wrap">
+    <!-- Hero -->
+    <header class="hero fade-in">
+      <div class="small">Welcome to</div>
+      <h1 class="big">Marvin's Space</h1>
+      <p class="sub">Programming enthusiast and student</p>
+    </header>
 
-                <div class="project-item">
-                    <img src="https://static.vecteezy.com/system/resources/previews/015/989/367/original/flash-card-icon-free-vector.jpg" alt="Flashcards icon" style="width: 50px; height: 50px;">
-                    <a href="https://card.mwsys.xyz" target="_blank">EzCards</a>
-                </div>
-                <div class="project-description">Effective word/definition flashcards.</div>
+    <main id="main" role="main" class="fade-in" tabindex="-1">
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="small" style="text-align:center; margin-bottom: 1rem;">Projects</h2>
+
+        <ul class="grid" id="projects">
+          <!-- Project card -->
+          <li class="card">
+            <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png"
+                   alt="Image sharing icon" width="60" height="60" loading="lazy" decoding="async" fetchpriority="low">
             </div>
+            <div class="title">EzImg</div>
+            <p class="desc">Share your images conveniently with ease.</p>
+            <a class="btn" href="https://img.mwsys.xyz" aria-label="Open EzImg">Open</a>
+          </li>
 
-            <div class="project-column">
-                <div class="project-item">
-                    <img src="https://images.vexels.com/media/users/3/132348/isolated/preview/4b664c72b5acf0e998f810ec0f6df7c8-stopwatch-timer-stroke-icon.png" alt="Timer icon" style="width: 50px; height: 50px;">
-                    <a href="https://timer.mwsys.xyz" target="_blank">EzTimer</a>
-                </div>
-                <div class="project-description">Your customizable tomato timer.</div>
-
-                <div class="project-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0DS7uOPfhogD7OxmDKx7JAFqH5zPBmwAbnQ&s" alt="Calculator icon" style="width: 50px; height: 50px;">
-                    <a href="https://grade.mwsys.xyz" target="_blank">EzGradeCalc</a>
-                </div>
-                <div class="project-description">Accurate subject grade/GPA calculator.</div>
-                
-                <div class="project-item">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4388/4388160.png" alt="Time Management icon" style="width: 50px; height: 50px;">
-                    <a href="https://eztm.mwsys.xyz" target="_blank">EzTimeManager</a>
-                </div>
-                <div class="project-description">Schedule your day with tasks and be organized!</div>
-
-                <div class="project-item">
-                    <img src="https://academichelp.net/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2023/10/5f49294168ecc70004ae7094.png.webp" alt="Grammar Checker icon" style="width: 50px; height: 50px;">
-                    <a href="https://ezpf.mwsys.xyz" target="_blank">EzProof</a>
-                </div>
-                <div class="project-description">Check your writing for spelling and grammar mistakes!</div>
+          <li class="card">
+            <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+                   alt="YouTube helper icon" width="60" height="60" loading="lazy" decoding="async">
             </div>
-        </div>
+            <div class="title">EzYTHelper</div>
+            <p class="desc">Watch YouTube without distractions.</p>
+            <a class="btn" href="https://yth.mwsys.xyz" aria-label="Open EzYTHelper">Open</a>
+          </li>
 
-        <div class="badge-info">
-            <img src="https://badges.toozhao.com/badges/01J7N14YCRJYSZWBVXVXMKMJM1/blue.svg" alt="badge" />
-        </div>
-    </div>
+          <li class="card">
+            <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/3214/3214746.png"
+                   alt="Link shortener icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzUrl</div>
+            <p class="desc">Shorten your URLs with custom back halves.</p>
+            <a class="btn" href="https://link.mwsys.xyz" aria-label="Open EzUrl">Open</a>
+          </li>
 
-    <div class="footer">
-        <div class="footer-text">Crafted by Marvin with Love</div>
-        <img class="footer-heart" src="https://cdn.pixabay.com/photo/2017/06/24/20/27/heart-2438746_1280.png" alt="Heart">
-    </div>
+          <li class="card">
+            <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/1828/1828881.png"
+                   alt="Citation generator icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzCite</div>
+            <p class="desc">Generate MLA, APA & Chicago citations from URLs, DOIs, ISBNs, or manual input.</p>
+            <a class="btn" href="https://cite.mwsys.xyz" aria-label="Open EzCite">Open</a>
+          </li>
 
-    <div class="devstory-info">
-        Check out my <a href="https://devstory.fyi/mw" target="_blank">Devstory</a>!
+          <li class="card">
+            <div class="icon">
+              <img src="https://nytminicrossword.com/wp-content/themes/iconic-one/data/nyt-wordle/logo.png"
+                   alt="Wordle icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzWordle</div>
+            <p class="desc">Play Wordle as much as you want!</p>
+            <a class="btn" href="https://wordle.mwsys.xyz" aria-label="Open EzWordle">Open</a>
+          </li>
+
+          <li class="card">
+            <div class="icon">
+              <img src="https://static.vecteezy.com/system/resources/previews/015/989/367/original/flash-card-icon-free-vector.jpg"
+                   alt="Flashcards icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzCards</div>
+            <p class="desc">Effective word/definition flashcards.</p>
+            <a class="btn" href="https://card.mwsys.xyz" aria-label="Open EzCards">Open</a>
+          </li>
+
+          <li class="card">
+            <div class="icon">
+              <img src="https://images.vexels.com/media/users/3/132348/isolated/preview/4b664c72b5acf0e998f810ec0f6df7c8-stopwatch-timer-stroke-icon.png"
+                   alt="Timer icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzTimer</div>
+            <p class="desc">Your customizable Pomodoro timer.</p>
+            <a class="btn" href="https://timer.mwsys.xyz" aria-label="Open EzTimer">Open</a>
+          </li>
+
+          <li class="card">
+            <div class="icon">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0DS7uOPfhogD7OxmDKx7JAFqH5zPBmwAbnQ&s"
+                   alt="Calculator icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzGradeCalc</div>
+            <p class="desc">Accurate subject grade/GPA calculator.</p>
+            <a class="btn" href="https://grade.mwsys.xyz" aria-label="Open EzGradeCalc">Open</a>
+          </li>
+
+          <li class="card">
+            <div class="icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/4388/4388160.png"
+                   alt="Time management icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzTimeManager</div>
+            <p class="desc">Schedule your day with tasks and be organized!</p>
+            <a class="btn" href="https://eztm.mwsys.xyz" aria-label="Open EzTimeManager">Open</a>
+          </li>
+
+          <li class="card">
+            <div class="icon">
+              <img src="https://academichelp.net/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2023/10/5f49294168ecc70004ae7094.png.webp"
+                   alt="Grammar checker icon" width="60" height="60" loading="lazy" decoding="async">
+            </div>
+            <div class="title">EzProof</div>
+            <p class="desc">Check your writing for spelling and grammar mistakes!</p>
+            <a class="btn" href="https://ezpf.mwsys.xyz" aria-label="Open EzProof">Open</a>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <div class="signature">
+      Crafted by Marvin with <span class="heart">❤️</span>
     </div>
-    
-    <div class="contact-info">
-        Have feedback? Contact me at <a href="mailto:admin@mwsys.xyz">admin@mwsys.xyz</a>!
+    <div class="footer-links" role="navigation" aria-label="Footer links">
+      <a href="mailto:admin@mwsys.xyz" aria-label="Email Marvin at admin at mwsys dot xyz">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        admin@mwsys.xyz
+      </a>
+      <a href="https://devstory.fyi/mw" target="_blank" rel="noopener noreferrer"
+         aria-label="Open my DevStory in a new tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        My DevStory
+      </a>
     </div>
+  </footer>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Marvin",
+    "url": "https://mwsys.xyz/",
+    "email": "mailto:admin@mwsys.xyz",
+    "jobTitle": "Student & Programming Enthusiast",
+    "sameAs": ["https://devstory.fyi/mw"]
+  }
+  </script>
+
+  <script>
+    // Settings menu behavior
+    const settingsBtn = document.getElementById('settingsBtn');
+    const quickMenu = document.getElementById('quickMenu');
+
+    function openMenu() {
+      quickMenu.classList.add('open');
+      quickMenu.setAttribute('aria-hidden', 'false');
+      settingsBtn.setAttribute('aria-expanded', 'true');
+      // Focus first control after open
+      queueMicrotask(() => document.getElementById('toggleEffects')?.focus());
+    }
+    function closeMenu() {
+      quickMenu.classList.remove('open');
+      quickMenu.setAttribute('aria-hidden', 'true');
+      settingsBtn.setAttribute('aria-expanded', 'false');
+    }
+    settingsBtn.addEventListener('click', () => {
+      const isOpen = quickMenu.classList.contains('open');
+      isOpen ? closeMenu() : openMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && quickMenu.classList.contains('open')) {
+        closeMenu();
+        settingsBtn.focus();
+      }
+    });
+    document.addEventListener('click', (e) => {
+      if (!quickMenu.contains(e.target) && !settingsBtn.contains(e.target) && quickMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    }, { passive: true });
+
+    // Respect user setting for visual effects (persisted), default: on.
+    const effectsToggle = document.getElementById('toggleEffects');
+    const particlesEl = document.getElementById('tsparticles');
+    const layer = document.querySelector('.layer');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stored = localStorage.getItem('effectsEnabled');
+    const effectsEnabled = stored !== null ? stored === 'true' : !prefersReducedMotion;
+
+    function applyEffectsState(on) {
+      if (!on) {
+        if (window.tsParticles?.dom()?.length) {
+          window.tsParticles.dom().forEach(c => c.destroy());
+        }
+        particlesEl.style.display = 'none';
+        layer.style.display = 'none';
+      } else {
+        particlesEl.style.display = '';
+        layer.style.display = '';
+        initParticles(); // lazy (re)init
+      }
+    }
+
+    effectsToggle.checked = effectsEnabled;
+    applyEffectsState(effectsEnabled);
+
+    effectsToggle.addEventListener('change', () => {
+      const on = effectsToggle.checked;
+      localStorage.setItem('effectsEnabled', String(on));
+      applyEffectsState(on);
+    });
+
+    // tsParticles init (guarded)
+    function initParticles() {
+      if (typeof tsParticles === 'undefined') return;
+      if (window.tsParticles?.dom()?.length) return; // already initialized
+      tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        interactivity: {
+          events: {
+            onHover: { enable: true, mode: "repulse" },
+            onClick: { enable: true, mode: "push" },
+            resize: true
+          },
+          modes: {
+            repulse: { distance: 120, duration: 0.4 },
+            push: { quantity: 4 }
+          }
+        },
+        particles: {
+          color: { value: "#5de4c7" },
+          links: { color: "#5de4c7", distance: 150, enable: true, opacity: 0.3, width: 1 },
+          move: { enable: true, speed: 1.4, direction: "none", outModes: { default: "bounce" }, random: true, straight: false },
+          number: { density: { enable: true, area: 800 }, value: 65 },
+          opacity: { value: 0.4 },
+          shape: { type: "circle" },
+          size: { value: { min: 1, max: 3 } }
+        },
+        detectRetina: true
+      });
+    }
+
+    // Initialize if enabled and not reduced motion
+    if (effectsEnabled && !prefersReducedMotion) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initParticles, { once: true });
+      } else {
+        initParticles();
+      }
+    }
+
+    // Parallax glow follows cursor (throttled)
+    let rafId = null;
+    let lastX = 50, lastY = 50;
+    function setGlow(x, y) {
+      layer.style.setProperty('--x', x + '%');
+      layer.style.setProperty('--y', y + '%');
+      rafId = null;
+    }
+    document.addEventListener('pointermove', e => {
+      if (!effectsToggle.checked || prefersReducedMotion) return;
+      lastX = (e.clientX / window.innerWidth) * 100;
+      lastY = (e.clientY / window.innerHeight) * 100;
+      if (rafId === null) rafId = requestAnimationFrame(() => setGlow(lastX, lastY));
+    }, { passive: true });
+
+    // Keyboard feedback for .btn
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') btn.style.opacity = 0.9;
+      });
+      btn.addEventListener('keyup', () => { btn.style.opacity = 1; });
+      btn.addEventListener('blur', () => { btn.style.opacity = 1; });
+    });
+
+    // Performance: preconnect/prefetch on hover for project links
+    const seenOrigins = new Set();
+    function ensurePreconnect(origin) {
+      if (seenOrigins.has(origin)) return;
+      seenOrigins.add(origin);
+      const link = document.createElement('link');
+      link.rel = 'preconnect';
+      link.href = origin;
+      link.crossOrigin = '';
+      document.head.appendChild(link);
+    }
+    function prefetchHref(href) {
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = href;
+      link.as = 'document';
+      document.head.appendChild(link);
+    }
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('pointerenter', () => {
+        try {
+          const u = new URL(btn.href);
+          ensurePreconnect(u.origin);
+          prefetchHref(btn.href);
+        } catch {}
+      }, { passive: true });
+    });
+
+    // Console Easter egg
+    console.log(`
+%c
+__ __ _ _____ _ 
+| \\/ | ___| |__ ___ _ __| ____|_ ___ __ | | ___ _ _ ___
+| |\\/| |/ _ \\ '_ \\ / _ \\| '__| _| \\ \\/ / '_ \\| |/ _ \\| | | |/ _ \\
+| | | | __/ |_) | (_) | | | |___ > <| |_) | | (_) | |_| | __/
+|_| |_|\\___|_.__/ \\___/|_| |_____/_/\\_\\ .__/|_|\\___/ \\__, |\\___|
+                                         |_|             |___/
+`, 'color:#5de4c7; font-family:monospace; font-size:14px;');
+  </script>
 </body>
-
 </html>
-
